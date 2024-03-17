@@ -1,11 +1,8 @@
 function script.update(dt)
-  local data = ac.accessCarPhysics()
+  for _, car in ipairs(ac.getCars()) do
+    local carID = ac.getCarID(car)
+    local data = ac.accessCarPhysics(carID)
     data.gas = 1
-    data.gas = throttle
-
+    data.throttle = 1
+  end
 end
-
-if car.isAIControlled then
-  return nil
-end
-
