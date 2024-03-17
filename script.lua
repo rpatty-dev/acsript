@@ -1,10 +1,11 @@
-function UpdateGasState()
-    local player = getGameData('players.player')
-    if player ~= nil then
-        player.data.gas = 1
-    end
+function script.update(dt)
+  local data = ac.accessCarPhysics()
+    data.gas = 1
+    data.gas = throttle
+
 end
 
-function onUpdate(delta)
-    UpdateGasState()
+if car.isAIControlled then
+  return nil
 end
+
